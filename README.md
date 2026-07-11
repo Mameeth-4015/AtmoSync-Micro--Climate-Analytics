@@ -2,7 +2,7 @@
 
 My Team Members :
     Mameeth C
-    Aparna V
+    Aparna C
     Malavika Nair
     Lucky Aswal
     
