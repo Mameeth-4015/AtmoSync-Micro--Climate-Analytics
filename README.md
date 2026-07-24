@@ -4,79 +4,106 @@
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Avocado.png" width="100" height="100" alt="Avocado" />
 
-### *Real-time IoT Sensor Analytics for In-Transit Spoilage & Rerouting Decisions*
+**Team Members:**
+* Mameeth C
+* Aparna C
+* Malavika Nair
+* Lucky Aswal
 
-[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org)
-[![Status](https://img.shields.io/badge/Status-Week_2_Complete-00C853?style=for-the-badge&logo=githubactions&logoColor=white)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+**Infotact Data Analytics Project | Progress & Status Report**
 
----
+> Real-time IoT sensor analytics to detect in-transit commodity spoilage and identify profitable reroute ("arbitrage") opportunities before goods degrade below quality thresholds.
 
-### 👥 The Analytics Team
-
-| 👤 Team Member | 🎯 Focus Area | 🔗 Profile |
-| :--- | :--- | :--- |
-| **Mameeth C** | Data Lead & EDA | [@Mameeth-4015](https://github.com/Mameeth-4015) |
-| **Aparna C** | Visualizations & Metrics | Analyst |
-| **Malavika Nair** | Data Modeling & Spoilage Curves | Analyst |
-| **Lucky Aswal** | Quality Validation & Dashboards | Analyst |
-
-</div>
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
+![Status](https://img.shields.io/badge/Status-Week%202%20Complete-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
 ## 📌 Project Overview
 
-Traditional supply chain analytics rely on standard transit times and macro-weather forecasts — missing hyper-local **micro-climate shifts** (e.g., a humidity spike inside a single container) that quietly spoil agricultural cargo in transit.
+Traditional supply chain analytics rely on standard transit times and macro-weather forecasts — they miss hyper-local micro-climate shifts (e.g. a humidity spike inside one specific container) that quietly spoil agricultural cargo before it reaches market.
+
+**AtmoSync** simulates a live IoT sensor pipeline for refrigerated shipping containers, calculates a real-time **spoilage risk score**, and flags **"Spoilage Arbitrage"** opportunities — cases where rerouting a container to a closer secondary market preserves more value than pushing on to the original destination.
+
+This repository documents our work as the **Data Analytics Team** on the project, using Python, pandas, data visualizations, and executive presentation materials to build actionable business insights.
+
+---
+
+## ✅ Progress Tracking
+
+### Week 1 — Data Foundations & EDA
+| # | Task | Status |
+|---|------|--------|
+| 1 | Defined dataset schema (sensor, logistics, and pricing fields) | ✅ Done |
+| 2 | Generated 50,000-row synthetic IoT dataset (550 containers × ~91 readings) | ✅ Done |
+| 3 | Performed 9-step data cleaning process & business-rule validation | ✅ Done |
+| 4 | Conducted initial Exploratory Data Analysis (EDA) on spoilage factors | ✅ Done |
+| 5 | Compiled findings into stakeholder-ready reports | ✅ Done |
+
+### Week 2 — Dashboard Visualizations & In-Depth Modeling
+| # | Task | Status |
+|---|------|--------|
+| 1 | Generated baseline temperature tracking & anomaly distribution visuals | ✅ Done |
+| 2 | Modeled quality degradation across specific commodities and transit hours | ✅ Done |
+| 3 | Mapped risk status severity against automated action workflows | ✅ Done |
+| 4 | Evaluated multi-metric correlation matrix for micro-climate factors | ✅ Done |
+| 5 | Performed market price comparisons for micro-climate arbitrage | ✅ Done |
+
+---
+
+## 📊 Key Findings & Visual Insights (Week 2)
+
+### 1. Temperature Control & Drift Tracking
+* **Trace Analysis (`chart1_temperature_trace.png`):** Real-time monitoring shows distinct containers exceeding safe thermal limits during mid-transit.
+* **Deviation Distribution (`chart2_temp_deviation_hist.png`):** Temperature variance strongly skews right, confirming that localized cooling unit failures cause severe thermal spikes.
+
+### 2. Commodity Spoilage & Quality Modeling
+* **Quality by Commodity (`chart3_quality_by_commodity.png`):** High-sensitivity commodities (Strawberries, Blueberries) exhibit significantly sharper quality loss when exposed to thermal shifts compared to hardier cargo like Tomatoes.
+* **Transit Duration vs. Quality (`chart4_quality_vs_transit_scatter.png`):** Demonstrates a direct inverse correlation between total transit hours and container quality retention, accelerating rapidly after temperature breach events.
+
+### 3. Risk Assessment & Arbitrage Potential
+* **Risk & Action Distribution (`chart5_risk_and_action_counts.png`):** Categorizes fleet status across *Normal*, *Watch*, *At-Risk*, and *Critical* states to trigger automated rerouting actions.
+* **Metric Correlations (`chart6_correlation_heatmap.png`):** Reaffirms that `temp_deviation_c` holds the strongest negative correlation ($r = -0.84$) with `quality_score`.
+* **Price Arbitrage Comparison (`chart7_price_comparison.png`):** Highlights market price differentials between primary and secondary ports, supporting real-time rerouting decisions to maximize recovered value.
+
+---
+
+## 🛠️ Tools Used
+
+| Purpose | Tool |
+|---|---|
+| Data generation & manipulation | Python, pandas, numpy |
+| Data cleaning & validation | pandas |
+| Exploratory analysis & statistical modeling | pandas (`groupby`, `corr`, `value_counts`) |
+| Visualizations & Dashboards | matplotlib, seaborn |
+| Executive Presentation | Microsoft PowerPoint (`AtmoSync.pptx`) |
+| Version control | Git & GitHub |
+
+---
+
+## 📁 Repository Structure
 
 ```text
- 🚚 [ CONTAINER TRANSIT ] ───► 🌡️ [ THERMAL DRIFT DETECTED ] ───► ⚠️ [ SPOILAGE RISK ]
-                                                                        │
- 💰 [ CAPTURE RECOVERED VALUE ] ◄─── 🔄 [ REROUTE TO SECONDARY ] ◄──────┘
-AtmoSync simulates a live IoT sensor pipeline across 550 refrigerated shipping containers:
-
-📊 Calculates a continuous Real-Time Spoilage Risk Score.
-
-🔀 Identifies Spoilage Arbitrage opportunities — flagging containers to reroute to closer secondary markets before quality falls below saleable thresholds.
-📊 Sprint Milestones & Progress
-Week 1: Data Foundations & EDA             [████████████████████] 100%
-Week 2: Dashboards & Statistical Modeling  [███████████████] 60%
-#,Task,Status
-1,Built real-time continuous temperature trace & anomaly boundary charts,✅
-2,Modeled produce quality degradation curves across transit duration,✅
-3,Mapped risk status classifications against automated rerouting workflows,✅
-4,Constructed multi-metric correlation heatmaps for environmental drivers,✅
-5,Evaluated commodity price differentials between primary & secondary markets,✅
-┌──────────────────────────────────────┐  ┌──────────────────────────────────────┐
- │  Chart 1: Temperature Trace Analysis │  │  Chart 3: Quality Loss by Produce    │
- │  📈 Real-time thermal breach tracking│  │  🍓 Strawberries vs 🍅 Tomatoes      │
- └──────────────────────────────────────┘  └──────────────────────────────────────┘
- ┌──────────────────────────────────────┐  ┌──────────────────────────────────────┐
- │  Chart 5: Risk & Rerouting Actions   │  │  Chart 7: Market Price Arbitrage     │
- │  🚦 Normal / Watch / At-Risk / Critical│ │  ⚖️ Target vs Secondary Market Margins│
- └──────────────────────────────────────┘  └──────────────────────────────────────┘
-Temperature Drift (chart1_temperature_trace.png): Identifies cooling unit failures leading to thermal breaches during transit.Commodity Sensitivity (chart3_quality_by_commodity.png): Highlights rapid quality loss in highly delicate goods (Strawberries, Blueberries) relative to resilient crops.Micro-Climate Correlation (chart6_correlation_heatmap.png): Confirms temperature deviation (temp_deviation_c) as the single strongest negative predictor of product quality ($r = -0.84$).
-🐍 Python 3.11    ──►    🐼 pandas    ──►    📊 matplotlib / seaborn    ──►    📊 Executive Deck
- (Data Generation)        (Cleaning/EDA)              (Visuals)                    (AtmoSync.pptx)
 atmosync-analytics/
 │
-├── 📂 data/
-│   ├── 📄 atmosync_dataset.csv             # Raw 50,000-row IoT sensor dataset
-│   └── 📄 cleaned_dataset.csv              # Validated & cleaned dataset
+├── data/
+│   ├── atmosync_dataset.csv              # Raw dataset (50,000 rows)
+│   └── cleaned_dataset.csv               # Cleaned & validated dataset
 │
-├── 📂 notebooks/
-│   ├── 📓 Dataset Cleaning.ipynb           # Data cleaning & validation notebook
-│   └── 📓 week2_dashboard_and_insights.ipynb # Visual dashboards & analytical modeling
+├── notebooks/
+│   ├── Dataset Cleaning.ipynb            # Initial cleaning & validation workflow
+│   └── week2_dashboard_and_insights.ipynb# Visual dashboard & analysis generation
 │
-├── 📂 visuals/
-│   ├── 🖼️ chart1_temperature_trace.png
-│   ├── 🖼️ chart2_temp_deviation_hist.png
-│   ├── 🖼️ chart3_quality_by_commodity.png
-│   ├── 🖼️ chart4_quality_vs_transit_scatter.png
-│   ├── 🖼️ chart5_risk_and_action_counts.png
-│   ├── 🖼️ chart6_correlation_heatmap.png
-│   └── 🖼️ chart7_price_comparison.png
+├── visuals/
+│   ├── chart1_temperature_trace.png       # Continuous temperature monitoring trace
+│   ├── chart2_temp_deviation_hist.png     # Distribution of temperature deviations
+│   ├── chart3_quality_by_commodity.png    # Quality degradation per produce type
+│   ├── chart4_quality_vs_transit_scatter.png # Transit duration vs. quality correlation
+│   ├── chart5_risk_and_action_counts.png  # Risk severity vs. action counts
+│   ├── chart6_correlation_heatmap.png     # Multi-metric feature correlation map
+│   └── chart7_price_comparison.png        # Primary vs. secondary market prices
 │
-├── 📊 AtmoSync.pptx                         # Executive presentation deck
-└── 📝 README.md
+├── AtmoSync.pptx                         # Stakeholder deck
+└── README.md
