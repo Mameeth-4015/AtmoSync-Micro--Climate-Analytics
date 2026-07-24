@@ -1,9 +1,4 @@
-<div align="center">
-
 # 🥑 AtmoSync — Micro-Climate Arbitrage Analytics
-
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Avocado.png" width="100" height="100" alt="Avocado" />
-
 
 **Team Members:**
 * Mameeth C
