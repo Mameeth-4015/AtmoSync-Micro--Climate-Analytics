@@ -12,7 +12,8 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
-![Status](https://img.shields.io/badge/Status-Week%202%20Complete-brightgreen)
+![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811)
+![Status](https://img.shields.io/badge/Status-Week%203%20Complete-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
@@ -23,7 +24,7 @@ Traditional supply chain analytics rely on standard transit times and macro-weat
 
 **AtmoSync** simulates a live IoT sensor pipeline for refrigerated shipping containers, calculates a real-time **spoilage risk score**, and flags **"Spoilage Arbitrage"** opportunities — cases where rerouting a container to a closer secondary market preserves more value than pushing on to the original destination.
 
-This repository documents our work as the **Data Analytics Team** on the project, using Python, pandas, data visualizations, and executive presentation materials to build actionable business insights.
+This repository documents our work as the **Data Analytics Team** on the project, using Python, pandas, data visualizations, Power BI, and executive presentation materials to build actionable business insights.
 
 ---
 
@@ -47,6 +48,19 @@ This repository documents our work as the **Data Analytics Team** on the project
 | 4 | Evaluated multi-metric correlation matrix for micro-climate factors | ✅ Done |
 | 5 | Performed market price comparisons for micro-climate arbitrage | ✅ Done |
 
+### Week 3 — Power BI Dashboard Development & Deployment
+| # | Task | Status |
+|---|------|--------|
+| 1 | Imported and modeled `cleaned_dataset.csv` in Power BI (Power Query cleanup, date/time parsing, Date dimension table) | ✅ Done |
+| 2 | Built core DAX measure library (volume, environmental, quality/shelf-life, risk, and financial/arbitrage measures) | ✅ Done |
+| 3 | Designed **Executive Overview** page — fleet-wide KPIs, risk distribution, origin-port map | ✅ Done |
+| 4 | Designed **Environmental Monitoring** page — temperature/humidity drift trends over transit hours, temp-vs-vibration scatter analysis, flagged-container watchlist | ✅ Done |
+| 5 | Designed **Risk & Alerts** page — live risk matrix with latest-status-per-container logic, faulty cooling unit tracking | ✅ Done |
+| 6 | Designed **Financial / Arbitrage Analysis** page — primary vs. secondary market value comparison, reroute-opportunity breakdown by commodity | ✅ Done |
+| 7 | Built **Container Detail** drill-through page for single-shipment sensor history | ✅ Done |
+| 8 | Applied conditional formatting & consistent risk-status color theme across all pages | ✅ Done |
+| 9 | Documented full build process (step-by-step guide + DAX reference) for handoff | ✅ Done |
+
 ---
 
 ## 📊 Key Findings & Visual Insights (Week 2)
@@ -66,6 +80,25 @@ This repository documents our work as the **Data Analytics Team** on the project
 
 ---
 
+## 📊 Key Findings & Visual Insights (Week 3)
+
+### 1. From Static Charts to a Live Decision Tool
+* Week 2's matplotlib/seaborn analysis confirmed *what* drives spoilage risk; Week 3 turned those findings into a **self-service Power BI dashboard** that operations staff can filter, drill into, and monitor without needing Python or notebooks.
+
+### 2. Fleet-Wide Risk Visibility
+* The **Executive Overview** page surfaces, at a glance, how many of the 550 active containers are currently `At-Risk` or `Critical`, and which commodities are disproportionately affected — directly operationalizing the Week 2 correlation findings.
+
+### 3. Root-Cause Drill-Down
+* The **Environmental Monitoring** page's temperature-vs-vibration scatter and drift watchlist make it possible to distinguish *cooling-unit failures* from *rough-handling events* as separate spoilage causes, rather than treating all temperature deviation as one category.
+
+### 4. Real-Time Arbitrage Decisioning
+* The **Financial / Arbitrage Analysis** page converts the Week 2 price-comparison findings into an actionable per-container view — ranking shipments by `arbitrage_gain_usd` so the highest-value rerouting opportunities are immediately visible, with `Containers Favoring Secondary Market` quantifying how many shipments per commodity would benefit from rerouting today.
+
+### 5. Single-Shipment Traceability
+* The **Container Detail** drill-through page closes the loop from fleet-level insight down to one container's full sensor timeline, supporting audit and incident-review use cases.
+
+---
+
 ## 🛠️ Tools Used
 
 | Purpose | Tool |
@@ -73,7 +106,8 @@ This repository documents our work as the **Data Analytics Team** on the project
 | Data generation & manipulation | Python, pandas, numpy |
 | Data cleaning & validation | pandas |
 | Exploratory analysis & statistical modeling | pandas (`groupby`, `corr`, `value_counts`) |
-| Visualizations & Dashboards | matplotlib, seaborn |
+| Static visualizations (Week 2) | matplotlib, seaborn |
+| Interactive BI dashboard (Week 3) | Microsoft Power BI, DAX |
 | Executive Presentation | Microsoft PowerPoint (`AtmoSync.pptx`) |
 | Version control | Git & GitHub |
 
@@ -101,5 +135,10 @@ atmosync-analytics/
 │   ├── chart6_correlation_heatmap.png     # Multi-metric feature correlation map
 │   └── chart7_price_comparison.png        # Primary vs. secondary market prices
 │
+├── powerbi/
+│   ├── AtmoSync_Dashboard.pbix           # Power BI dashboard file
+│   └── PowerBI_ColdChain_Dashboard_Guide.md # Step-by-step build guide + DAX reference
+│
 ├── AtmoSync.pptx                         # Stakeholder deck
 └── README.md
+```
